@@ -11,6 +11,51 @@
             <p>
                 {{ message }}
             </p>
+            <p>
+                {{ user.prefecture }}
+            </p>
+            <p>
+                {{ colors[0] }}
+            </p>
+            <input type="text" v-bind:value="message" />
+            <p v-if="toggle">
+                Hello
+            </p>
+            <p v-show="toggle">
+                Hello
+            </p>
+            <ol>
+                <li v-for="color in colors">{{ color }}</li>
+            </ol>
+            <ul>
+                <li v-for="xxx in user">{{ xxx }}</li>
+            </ul>
+            <hr>
+            <ul>
+                <li v-for="(value, key) in user">
+                    {{ key }} : {{ value }}
+                </li>
+            </ul>
+            <button v-on:click="onclick">
+                Click!
+            </button>
+            <p>
+                {{ now }}
+            </p>
+            <p>
+                <input type="text" v-model="message">
+            </p>
+            <p>
+                {{ message }}
+            </p>
+            <p>
+                文字数{{ message.length }}
+            </p>
+            <!-- <pre>{{ $data }}</pre> -->
+            <!-- コンポーネント -->
+            <hello-component></hello-component>
+            <hello-component></hello-component>
+            <hello-component></hello-component>
         </div>
         <!-- Vue.jsとVue Routerを読み込む -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>

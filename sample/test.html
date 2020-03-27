@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>Vueテスト</title>
+    </head>
+
+    <body>
+        <div id="app">
+            <p>
+                {{ message }}
+            </p>
+            <div v-if="toggle">
+                <a v-bind:href="url">
+                    Vue.js公式サイト
+                </a>
+            </div>
+            <ul>
+                <li v-for="language in languages">
+                    {{ language }}
+                </li>
+            </ul>
+            <button v-on:click="click">
+                Click!
+            </button>
+            <p>
+                <input type="text" v-model="message">
+            </p>
+        </div>
+        <!-- Vue.jsとVue Routerを読み込む -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/2.8.1/vue-router.js"></script>
+        <script src="./test.js"></script>
+    </body>
+
+</html>
