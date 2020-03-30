@@ -8,6 +8,7 @@ var app = new Vue({
   el: '#app',
   data: {
     message: 'Hello Vue.js!',
+    messageHtml: 'Hello <span style="color:red;">Vue.js!</span>',
     count: 10,
     user: {
       lastName: 'Yamada',
@@ -26,6 +27,12 @@ var app = new Vue({
   methods: {
     onclick: function() {
       this.now = new Date().toLocaleString()
+    },
+    clickHandler(e) {
+      this.message = this.message
+        .split('')
+        .reverse()
+        .join('')
     }
   }
 })

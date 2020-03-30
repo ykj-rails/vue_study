@@ -56,10 +56,26 @@
             <hello-component></hello-component>
             <hello-component></hello-component>
             <hello-component></hello-component>
+            <!-- v-once -->
+            <p v-once>
+                v-once(初回だけテンプレートを評価){{ message }}
+            </p>
+            <button v-on:click="clickHandler">
+                文字が反転
+            </button>
+            <!-- v-pre -->
+            <p v-pre>
+                {{ message }}
+            </p>
+            <!-- v-html -->
+            <p v-html="messageHtml">
+            </p>
+            <!-- v-cloak -->
+            <p v-html="messageHtml">
+            </p>
         </div>
         <!-- Vue.jsとVue Routerを読み込む -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/2.8.1/vue-router.js"></script>
         <script src="./index.js"></script>
     </body>
 
