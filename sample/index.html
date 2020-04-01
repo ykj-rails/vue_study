@@ -4,12 +4,14 @@
     <head>
         <meta charset="UTF-8" />
         <title>Vue Routerサンプル</title>
+        <link rel="stylesheet" href="./style.css">
     </head>
 
     <body>
         <div id="app">
-            <p>
-                {{ message }}
+            <!-- v-cloak -->
+            <p v-cloak>
+                {{ message2 }}
             </p>
             <p>
                 {{ user.prefecture }}
@@ -70,11 +72,22 @@
             <!-- v-html -->
             <p v-html="messageHtml">
             </p>
-            <!-- v-cloak -->
-            <p v-html="messageHtml">
+            <p v-text="message">
+            </p>
+            <!-- js式 -->
+            <p>
+                {{ number +  1}}
+            </p>
+            <p>
+                {{ message.split('').reverse().join('') }}
+            </p>
+            <p>
+                {{ ok? 'YES' : 'NO' }}
+            </p>
+            <p>
+                <!-- {{ var x = 1 }} -->
             </p>
         </div>
-        <!-- Vue.jsとVue Routerを読み込む -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
         <script src="./index.js"></script>
     </body>

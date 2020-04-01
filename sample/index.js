@@ -8,19 +8,18 @@ var app = new Vue({
   el: '#app',
   data: {
     message: 'Hello Vue.js!',
+    message2: 'Hello!',
+    number: 100,
+    ok: true,
     messageHtml: 'Hello <span style="color:red;">Vue.js!</span>',
     count: 10,
     user: {
       lastName: 'Yamada',
       firstName: 'Taro',
-      prefecture: 'Tokyo'
-    },
-    colors: ['Red', 'Green', 'Blue'],
-    user: {
-      firstName: 'Taro',
-      LastName: 'Yamada',
+      prefecture: 'Tokyo',
       age: 30
     },
+    colors: ['Red', 'Green', 'Blue'],
     toggle: false,
     now: ''
   },
