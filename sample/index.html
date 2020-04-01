@@ -87,6 +87,22 @@
             <p>
                 <!-- {{ var x = 1 }} -->
             </p>
+            <p>
+                {{ price | numberFormat(price) }}
+                <input type="text" v-bind:value="price | numberFormat(price)">
+            </p>
+            <p>
+                {{ jpyPrice }}
+                {{ jpyPrice | toUSD(jpyPrice) }}
+                {{ jpyPrice | toUSD(jpyPrice) | numberFormat(price) }}
+            </p>
+            <p>
+                {{ text | readMore(20, '...') }}
+                {{ text | readMore(5, '***') }}
+            </p>
+            <a :href="url" target="_blank">
+                Link1
+            </a>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
         <script src="./index.js"></script>
