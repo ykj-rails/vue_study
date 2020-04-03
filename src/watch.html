@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>computed</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+
+    <body>
+        <div id="app">
+            <h2>
+                監視プロパティ
+            </h2>
+            <p>
+                {{ message }}
+            </p>
+            <p>
+                <input type="text" v-model:value="message">
+            </p>
+            <p>
+                <input type="text" v-model:value="km">km
+            </p>
+            <p>
+                <input type="text" v-model:value="m">m
+            </p>
+            <p>
+                <input type="text" v-model:value="mm">mm
+            </p>
+            <p>
+                firstName: <input type="text" v-model:value="firstName">
+            </p>
+            <p>
+                LastName: <input type="text" v-model:value="lastName">
+            </p>
+            <p>
+                fullName: {{ fullName }}
+            </p>
+            <h2>deepオプション</h2>
+            <ul>
+                <li v-for="color in colors">
+                    {{ color.name }}
+                </li>
+            </ul>
+        </div>
+        <div id="app2">
+            <h2>算出プロパティ</h2>
+            <p>
+                firstName: <input type="text" v-model:value="firstName">
+            </p>
+            <p>
+                LastName: <input type="text" v-model:value="lastName">
+            </p>
+            <p>
+                fullName: {{ fullName }}
+            </p>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    message: 'Hello Vue.js',
+                    km: 0,
+                    m: 0,
+                    mm: 0,
+                    firstName: '',
+                    lastName: '',
+                    fullName: '',
+                    colors: [
+                        { name: 'Red' },
+                        { name: 'Green' },
+                        { name: 'Blue' }
+                    ]
+                },
+                watch: {
+                    message: function (newValue, oldValue) {
+                        console.log('new: %s, old: %s', newValue, oldValue)
+                    },
+                    km: function (value) {
+                        // console.log(value)
+                        this.km = value
+                        this.m = value * 1000
+                        this.mm = value * 1000000
+                    },
+                    m: function (value) {
+                        // console.log(value)
+                        this.km = value / 1000
+                        this.m = value
+                        this.mm = value * 1000
+                    },
+                    mm: function (value) {
+                        // console.log(value)
+                        this.km = value / 1000000
+                        this.m = value / 1000
+                        this.mm = value
+                    },
+                    firstName: function (value) {
+                        this.fullName = value + ' ' + this.lastName
+                    },
+                    lastName: function (value) {
+                        this.fullName = this.firstName + ' ' + value
+                    },
+                    colors: {
+                        handler(newValue, oldValue) {
+                            console.log('Update!')
+                            console.log('new: %s, oldValue: %s',
+                                JSON.stringify(newValue, null, '\t'),
+                                JSON.stringify(oldValue, null, '\t')
+                            )
+                        },
+                        deep: true,
+                        immediate: true
+                    }
+                }
+            })
+            // 算出プロパティを使って例
+            var app2 = new Vue({
+                el: '#app2',
+                data: {
+                    firstName: '',
+                    lastName: '',
+                },
+                computed: {
+                    fullName() {
+                        return this.firstName + ' ' + this.lastName
+                    }
+                }
+            })
+        </script>
+    </body>
+
+</html>
