@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>クラスバインディング</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+
+    <body>
+        <div id="app">
+            <p>
+                Hello <span v-bind:class="{large: isLarge}">Vue.js!</span>
+            </p>
+            <p>
+                Hello <span v-bind:class="{large: isLarge, 'text-danger': hasError}">Vue.js!</span>
+            </p>
+            <p>
+                Hello <span class="bg-gray text-blue"
+                    v-bind:class="{large: isLarge, 'text-danger': hasError}">Vue.js!</span>
+            </p>
+            <p>
+                Hello <span v-bind:class="[largeClass, dangerClass]">Vue.js!</span>
+            </p>
+            <p>
+                Hello <span v-bind:class="classObject">Vue.js!</span>
+            </p>
+            <p>
+                Hello <span v-bind:class="[isLarge2 ? largeClass2 : '', dangerClass2 ]">Vue.js!</span>
+            </p>
+            <p>
+                三項演算子：<span v-bind:class="[isTrue ? 'text-danger' : '', largeClass]">Hello Vue.js!</span>
+            </p>
+            <p>
+                Hello <span v-bind:style="{color: color, 'font-size': fontSize + 'px'}">Vue.js!</span>
+            </p>
+            <p>
+                Hello <span v-bind:style="styleObject">Vue.js!</span>
+            </p>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    isLarge: true,
+                    hasError: true,
+                    largeClass: 'large',
+                    dangerClass: 'text-danger',
+                    classObject: {
+                        large: true,
+                        'text-danger': true
+                    },
+                    largeClass2: {
+                        large: true,
+                        'bg-gray': true
+                    },
+                    dangerClass2: {
+                        'text-danger': true
+                    },
+                    isLarge2: false,
+                    isTrue: true,
+                    color: 'blue',
+                    fontSize: 48,
+                    styleObject: { // オブジェクトを定義
+                        color: 'blue',
+                        fontSize: '48px'
+                    }
+                }
+            })
+        </script>
+    </body>
+
+</html>
