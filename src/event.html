@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>イベントハンドリング</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+
+    <body>
+        <div id="app">
+            <h2>インラインメソッド</h2>
+            <p>{{ count }}</p>
+            <button v-on:click="count++">Click!</button>
+
+            <h2>イベントメソッド</h2>
+            <p>{{ message }}</p>
+            <p>{{ count2 }}</p>
+            <button @click="clickHandler($event, 'Vue.js')">Click!</button>
+
+            <h2>once修飾子</h2>
+            <p>{{ timeMessage }}</p>
+            <button v-on:click.once="clickTimeHandler">Now</button>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    count: 0,
+                    count2: 0,
+                    message: '',
+                    timeMessage: ''
+                },
+                methods: {
+                    clickHandler($event, message) {
+                        console.log($event)
+                        console.log($event.target.tagName)
+                        this.count2++
+                        this.message = message
+                    },
+                    clickTimeHandler($event, message) {
+                        this.timeMessage = new Date().toLocaleTimeString()
+                    },
+                }
+            })
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>イベントハンドリング</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+
+    <body>
+        <div id="app">
+            <h2>フォームデータバインディング</h2>
+            <p>
+                {{ message }}
+            </p>
+            <input type="text" v-model.trim="message">
+
+            <p>
+                .number修飾子：{{ age + 10 }}
+            </p>
+            <input type="number" v-model.number="age">
+
+            <h2>テキストエリア</h2>
+            <textarea v-model="message"></textarea>
+
+            <h2>チェックボックス</h2>
+            <input type="checkbox" id="checkbox" v-model="checked">
+            <label for="checkbox">{{ checked }}</label>
+
+            <h2>複数のチェックボックス</h2>
+            <input type="checkbox" id="red" value="Red" v-model="colors">
+            <label for="red">Red</label>
+            <input type="checkbox" id="green" value="Green" v-model="colors">
+            <label for="green">Green</label>
+            <input type="checkbox" id="blue" value="Blue" v-model="colors">
+            <label for="blue">Blue</label>
+
+            <h2>ラジオボタン</h2>
+            <input type="radio" id="red" value="Red" v-model="color">
+            <label for="red">Red</label>
+            <input type="radio" id="green" value="Green" v-model="color">
+            <label for="green">Green</label>
+            <input type="radio" id="blue" value="Blue" v-model="color">
+            <label for="blue">Blue</label>
+
+            <h2>セレクトボックス</h2>
+            <select v-model="selected">
+                <option disable value="">Please select</option>
+                <option>Red</option>
+                <option>Green</option>
+                <option>Blue</option>
+            </select>
+            <p>
+                {{ selected }}
+            </p>
+            <h2>複数 セレクトボックス</h2>
+            <select v-model="selectedArray" multiple>
+                <option disable value="">Please select</option>
+                <option>Red</option>
+                <option>Green</option>
+                <option>Blue</option>
+            </select>
+            <p>
+                {{ selectedArray }}
+            </p>
+            <pre>{{ $data }}</pre>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    message: '',
+                    age: 0,
+                    checked: false,
+                    color: '',
+                    colors: [],
+                    selected: '',
+                    selectedArray: []
+                }
+            })
+        </script>
+    </body>
+
+</html>
