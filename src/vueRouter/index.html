@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>Vue Router</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+
+    <body>
+        <div id="app">
+            <router-link to="/top">Go To Top</router-link>
+            <router-link to="/users">Go To User</router-link>
+            <router-view></router-view>
+        </div>
+        <script src="https://unpkg.com/vue@2.6.10"></script>
+        <script src="https://unpkg.com/vue-router@3.0.6"></script>
+        <script>
+            const TOP = { template: '<div>Top</div>' }
+            const USER = { template: '<div>User</div>' }
+            const router = new VueRouter({
+                routes: [
+                    {
+                        path: '/top',
+                        component: TOP
+                    },
+                    {
+                        path: '/users',
+                        component: USER
+                    }
+                ]
+            })
+
+            const app = new Vue({
+                // router: router
+                router
+            }).$mount('#app')
+        </script>
+    </body>
+
+</html>

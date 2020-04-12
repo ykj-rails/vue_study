@@ -1,0 +1,29 @@
+[v-cloak] {
+  display: none;
+}
+
+.large {
+  font-size: 36px;
+}
+
+.text-danger {
+  color: red;
+}
+
+.bg-gray {
+  background-color: gray;
+}
+
+.text-blue {
+  color: blue;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 5s;
+}
+
+.v-enter-to,
+.v-leave-to {
+  opacity: 0;
+}
