@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>コンポーネント</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+
+    <body>
+        <div id="app">
+            <transition-button></transition-button>
+            <!-- <pre>{{ $data }}</pre> -->
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+        <script>
+            var transitionButton = {
+                data: function () {
+                    return {
+                        show: false
+                    }
+                },
+                template:
+                    `<div>
+                        <button v-on:click="show=!show">change</button>
+                        <transition>
+                            <p v-show="show">Hello Transition</p>
+                        </transition>
+                    </div>
+                    `
+            }
+
+            var app = new Vue({
+                el: '#app',
+                components: {
+                    'transition-button': transitionButton
+                }
+            })
+        </script>
+    </body>
+
+</html>

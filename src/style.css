@@ -17,3 +17,13 @@
 .text-blue {
   color: blue;
 }
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 5s;
+}
+
+.v-enter-to,
+.v-leave-to {
+  opacity: 0;
+}
