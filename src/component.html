@@ -37,11 +37,14 @@
             })
 
             Vue.component('hello-component', {
-                template: '<p>Hello</p>'
+                template: '<p>Hello Global</p>'
             })
 
             var helloComponentLocal = {
-                template: '<p>Hello</p>'
+                template: `<div>
+                            <p>Hello Local</p>
+                            <p>YEAHHH</p>
+                            </div>`
             }
 
             var app = new Vue({
