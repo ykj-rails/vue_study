@@ -19,11 +19,14 @@
             <button-counter></button-counter>
             <button-counter></button-counter>
             <button-counter></button-counter>
+            <h2>form</h2>
+            <input-form></input-form>
 
             <!-- <pre>{{ $data }}</pre> -->
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
         <script>
+            // グローバル登録
             Vue.component('button-counter', {
                 data: function () {
                     return {
@@ -35,22 +38,34 @@
                         <span>count: </span><button v-on:click="count++">{{ count }}</button>
                     </div>`
             })
-
             Vue.component('hello-component', {
                 template: '<p>Hello Global</p>'
             })
-
+            // ローカル登録
             var helloComponentLocal = {
                 template: `<div>
                             <p>Hello Local</p>
                             <p>YEAHHH</p>
                             </div>`
             }
+            var inputForm = {
+                template: `<div>
+                            <label for="name">お名前</label>
+                            <input type="text" name="name" v-model="inputName">
+                            <p>{{ inputName }}</p>
+                            </div>`,
+                data() {
+                    return {
+                        inputName: ''
+                    }
+                }
+            }
 
             var app = new Vue({
                 el: '#app',
                 components: {
-                    'hello-component-local': helloComponentLocal
+                    'hello-component-local': helloComponentLocal,
+                    'input-form': inputForm
                 }
             })
         </script>
